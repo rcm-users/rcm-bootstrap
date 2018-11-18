@@ -1,6 +1,6 @@
-ls "$TESTDIR/../bin" | grep -v "\.in" | while read filename
+ls "$TESTDIR/../bin" | grep -v "\.in" | while read -r filename
 do
-  chmod +x "$TESTDIR/../bin"/$filename
+  chmod +x "$TESTDIR/../bin/$filename"
 done
 
 export HOME="$PWD"
