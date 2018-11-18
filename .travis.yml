@@ -5,6 +5,11 @@ os:
   - linux
   - osx
 
+matrix:
+  include:
+    - python: "3.6"
+      os: linux
+    - os: osx
 
 sudo: false
 dist: trusty
