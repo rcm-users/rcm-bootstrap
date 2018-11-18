@@ -22,4 +22,6 @@ script:
 - ./autogen.sh
 - ./configure
 - make check
-- shellcheck bin/*.in test/setup.sh
+
+after_failure:
+- cat test/*.err
