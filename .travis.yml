@@ -17,12 +17,18 @@ branches:
 services:
   - docker
 
+addons:
+  apt:
+    packages:
+      - shellcheck
+
 before_install:
-  - curl -LO https://storage.googleapis.com/container-structure-test/latest/container-structure-test-linux-amd64
-  - chmod +x container-structure-test-linux-amd64
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install shellcheck; if
   - mkdir -p $TRAVIS_BUILD_DIR/.build/bin
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then curl -o $TRAVIS_BUILD_DIR/.build/bin/container-structure-test https://storage.googleapis.com/container-structure-test/latest/container-structure-test-darwin-amd64; if
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then curl -o $TRAVIS_BUILD_DIR/.build/bin/container-structure-test https://storage.googleapis.com/container-structure-test/latest/container-structure-test-linux-amd64; if
+  - chmod +x $TRAVIS_BUILD_DIR/.build/bin/container-structure-test
   - export PATH=$PATH:$TRAVIS_BUILD_DIR/.build/bin
-  - mv container-structure-test-linux-amd64 $TRAVIS_BUILD_DIR/.build/bin/container-structure-test
 
 script:
   - echo Hello World
