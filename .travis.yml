@@ -1,14 +1,12 @@
-language: python
-
 matrix:
   include:
   - os: linux
+    language: python
     python: "3.6"
+    sudo: false
+    dist: trusty
   - os: osx
     language: generic
-
-sudo: false
-dist: trusty
 
 git:
   depth: 1
