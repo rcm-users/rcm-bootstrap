@@ -1,4 +1,4 @@
-language: sh
+language: python
 os:
   - linux
   - osx
