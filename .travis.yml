@@ -19,4 +19,6 @@ install:
 - pip install cram
 
 script:
-- echo Hello World
+- ./autogen.sh
+- ./configure
+- make check
