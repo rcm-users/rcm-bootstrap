@@ -1,8 +1,6 @@
 #!/bin/bash
 
-for filename in "$TESTDIR"/../bin/* ; do
-    chmod +x "$filename"
-done
+find "$TESTDIR"/../bin/. -name "!(*.in)" -exec chmod +x {} \;
 
 export HOME="$PWD"
 export PATH="$TESTDIR/../bin:$PATH"

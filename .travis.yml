@@ -22,3 +22,4 @@ script:
 - ./autogen.sh
 - ./configure
 - make check
+- shellcheck bin/*.in test/setup.sh
