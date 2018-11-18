@@ -21,9 +21,9 @@ addons:
   apt:
     packages:
       - shellcheck
-
-before_install:
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install shellcheck; fi
+  homebrew:
+    packages:
+      - shellcheck
 
 install:
 - pip install cram
