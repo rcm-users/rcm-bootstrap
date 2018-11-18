@@ -1,0 +1,28 @@
+language: sh
+os:
+  - linux
+  - osx
+
+
+sudo: required
+dist: trusty
+
+git:
+  depth: 1
+
+branches:
+  only:
+  - master
+
+services:
+  - docker
+
+before_install:
+  - curl -LO https://storage.googleapis.com/container-structure-test/latest/container-structure-test-linux-amd64
+  - chmod +x container-structure-test-linux-amd64
+  - mkdir -p $TRAVIS_BUILD_DIR/.build/bin
+  - export PATH=$PATH:$TRAVIS_BUILD_DIR/.build/bin
+  - mv container-structure-test-linux-amd64 $TRAVIS_BUILD_DIR/.build/bin/container-structure-test
+
+script:
+  - echo Hello World
