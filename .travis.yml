@@ -4,7 +4,7 @@ os:
   - osx
 
 
-sudo: required
+sudo: false
 dist: trusty
 
 git:
@@ -14,9 +14,6 @@ branches:
   only:
   - master
 
-services:
-  - docker
-
 addons:
   apt:
     packages:
@@ -24,11 +21,7 @@ addons:
 
 before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install shellcheck; fi
-  - mkdir -p $TRAVIS_BUILD_DIR/.build/bin
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then curl -o $TRAVIS_BUILD_DIR/.build/bin/container-structure-test https://storage.googleapis.com/container-structure-test/latest/container-structure-test-darwin-amd64; fi
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then curl -o $TRAVIS_BUILD_DIR/.build/bin/container-structure-test https://storage.googleapis.com/container-structure-test/latest/container-structure-test-linux-amd64; fi
-  - chmod +x $TRAVIS_BUILD_DIR/.build/bin/container-structure-test
-  - export PATH=$PATH:$TRAVIS_BUILD_DIR/.build/bin
+  - pip install cram
 
 script:
   - echo Hello World
