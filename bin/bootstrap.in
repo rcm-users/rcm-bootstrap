@@ -1,3 +1,4 @@
 #!@SHELL@
 
-echo "Hello World"
+for last; do true; done
+echo $last

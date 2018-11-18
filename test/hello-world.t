@@ -2,5 +2,5 @@
 
 Hello World
 
-  $ bootstrap
-  Hello World
+  $ bootstrap git@github.com:devinsba/dotfiles
+  git@github.com:devinsba/dotfiles
