@@ -1,8 +1,6 @@
 #!/bin/bash
 
-shopt -s extglob
-
-for filename in "$TESTDIR"/../bin/*!(.in) ; do
+for filename in "$TESTDIR"/../bin/* ; do
     chmod +x "$TESTDIR/../bin/$filename"
 done
 
