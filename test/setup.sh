@@ -2,7 +2,7 @@
 
 shopt -s extglob
 
-for filename in $TESTDIR/../bin/*!(.in) ; do
+for filename in "$TESTDIR"/../bin/*!(.in) ; do
     chmod +x "$TESTDIR/../bin/$filename"
 done
 
