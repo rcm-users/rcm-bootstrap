@@ -1,7 +1,7 @@
 #!/bin/bash
 
 for filename in "$TESTDIR"/../bin/* ; do
-    chmod +x "$TESTDIR/../bin/$filename"
+    chmod +x "$filename"
 done
 
 export HOME="$PWD"
