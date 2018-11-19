@@ -7,7 +7,10 @@
 
 # [ <-- needed because of Argbash
 
+# shellcheck disable=SC2154
 REPO=$_arg_repo
+
+
 SUDO="sudo"
 
 if [ "$(id -u)" == "0" ]
