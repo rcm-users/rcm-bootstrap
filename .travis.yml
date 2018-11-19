@@ -1,12 +1,8 @@
-matrix:
-  include:
-  - os: linux
-    language: python
-    python: "3.6"
-    sudo: false
-    dist: trusty
-  - os: osx
-    language: generic
+os: linux
+dist: trusty
+language: python
+python: "3.6"
+sudo: false
 
 git:
   depth: 1
@@ -16,12 +12,10 @@ branches:
   - master
 
 install:
-- pip install cram
+- ./.ci/install-deps.sh
 
 script:
-- ./autogen.sh
-- ./configure
-- make check
+- shellcheck src/*.m4
 
 after_failure:
 - cat test/*.err
