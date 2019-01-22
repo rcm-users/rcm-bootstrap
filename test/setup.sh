@@ -8,7 +8,7 @@ export PATH="$TESTDIR/../bin:$PATH"
 
 (
     cd "$TESTDIR/../bin" || exit 1
-    if ! -f bootstrap ; then
+    if [[ ! -f bootstrap ]] ; then
         mv "bootstrap-$(uname)" bootstrap
     fi
 )
