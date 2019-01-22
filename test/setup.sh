@@ -2,7 +2,7 @@
 
 find "$TESTDIR/../bin/" -type f ! -name "*.in" -exec chmod +x {} \;
 
-TEMPDIR=$(mktemp -d -t rcb)
+TEMPDIR=$(mktemp -d /tmp/rcmbsXXXXXX)
 export HOME="$TEMPDIR"
 export PATH="$TESTDIR/../bin:$PATH"
 
