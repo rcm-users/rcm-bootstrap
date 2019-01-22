@@ -11,8 +11,9 @@ install:
 - ./.ci/install-deps.sh
 
 script:
-- shellcheck src/*.m4
-- cram -v -q test/*.t
+- ./.ci/build.sh
+- shellcheck bin/*
+- cram -v test/*.t > test/log.txt || (cat test/log.txt | tail -n 1 && false)
 
 after_failure:
-- cat test/*.err
+- cat test/log.txt

@@ -8,7 +8,9 @@ export PATH="$TESTDIR/../bin:$PATH"
 
 (
     cd "$TESTDIR/../bin" || exit 1
-    mv "bootstrap-$(uname)" bootstrap
+    if ! -f bootstrap ; then
+        mv "bootstrap-$(uname)" bootstrap
+    fi
 )
 
 function clean() {
