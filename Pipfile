@@ -7,6 +7,7 @@ verify_ssl = true
 
 [packages]
 cram = "*"
+shinto-cli = {extras = ["yaml"],version = "*"}
 
 [requires]
 python_version = "3.6"

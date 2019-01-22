@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# check for rcm being installed
+# if no:
+#   install rcm
+if ! command -v rcup > /dev/null ; then
+    {%- block install_rcm %}{%- endblock %}
+fi
+
+# check for git being installed
+# if no:
+#   install git
+if ! command -v git > /dev/null ; then
+    {%- block install_git %}{%- endblock %}
+fi
+
+# clone dotfiles repo
+
+git clone "$@" "$HOME/.local/share/dotfiles"
+
+# set rcm config to point to dotfiles
+
+echo DOTFILES_DIRS="$HOME/.local/share/dotfiles" > "$HOME/.rcrc"
+
+# exec rcup
+
+rcup -v

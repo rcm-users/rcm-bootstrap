@@ -7,3 +7,5 @@ test/*.log
 test/*.trs
 test-driver
 test-suite.log
+
+bin
