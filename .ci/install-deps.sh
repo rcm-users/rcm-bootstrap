@@ -2,7 +2,8 @@
 
 ARGBASH_VERSION="2.7.1"
 
-pip install cram
+pip install pipenv
+pipenv install --three
 
 curl -Lo argbash.zip "https://github.com/matejak/argbash/archive/$ARGBASH_VERSION.zip"
 unzip -o argbash.zip
