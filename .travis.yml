@@ -16,6 +16,7 @@ install:
 
 script:
 - shellcheck src/*.m4
+- cram -v -q test/*.t
 
 after_failure:
 - cat test/*.err
