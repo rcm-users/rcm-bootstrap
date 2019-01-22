@@ -13,6 +13,6 @@ export PATH="$TESTDIR/../bin:$PATH"
     fi
 )
 
-function clean() {
+clean() {
     rm -rf "$HOME"
 }
