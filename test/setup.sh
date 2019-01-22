@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 find "$TESTDIR/../bin/" -type f ! -name "*.in" -exec chmod +x {} \;
 
@@ -8,7 +8,7 @@ export PATH="$TESTDIR/../bin:$PATH"
 
 (
     cd "$TESTDIR/../bin" || exit 1
-    if [[ ! -f bootstrap ]] ; then
+    if [ ! -f bootstrap ] ; then
         mv "bootstrap-$(uname)" bootstrap
     fi
 )
