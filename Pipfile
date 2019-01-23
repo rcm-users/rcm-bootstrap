@@ -8,6 +8,10 @@ verify_ssl = true
 [packages]
 cram = "*"
 shinto-cli = {extras = ["yaml"],version = "*"}
+pyyaml = ">=4.2b4"
 
 [requires]
 python_version = "3.6"
+
+[pipenv]
+allow_prereleases = true
