@@ -13,7 +13,7 @@ install:
 script:
 - ./.ci/build.sh
 - shellcheck bin/*
-- cram -v test/*.t > test/test.log || (cat test/test.log | tail -n 1 && false)
+- (cram -v test/*.t > test/test.log && cat test/test.log | tail -n 1) || (cat test/test.log | tail -n 1 && false)
 
 after_failure:
 - cat test/test.log
