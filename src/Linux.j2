@@ -1,15 +1,11 @@
 {% extends "bootstrap.j2tpl" %}
 {%- block install_rcm %}
-    echo "command: rcup not found, adding repository and installing package"
     wget -qO - https://apt.thoughtbot.com/thoughtbot.gpg.key | sudo apt-key add -
-    echo "deb https://apt.thoughtbot.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/thoughtbot.list > /dev/null
-    sudo apt-get update &> /dev/null
-    sudo apt-get -y install rcm &> /dev/null
-    echo "package: rcm installed successfully"
+    echo "deb https://apt.thoughtbot.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/thoughtbot.list
+    sudo apt-get update
+    sudo apt-get -y install rcm
 {%- endblock %}
 {%- block install_git %}
-    echo "command: git not found, installing package"
-    sudo apt-get update &> /dev/null
-    sudo apt-get -y install git &> /dev/null
-    echo "package: git installed successfully"
+    sudo apt-get update
+    sudo apt-get -y install git
 {%- endblock %}
