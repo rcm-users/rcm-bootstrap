@@ -1,32 +1,19 @@
-language: python
-
-matrix:
-  include:
-    - os: linux
-      python: "3.6"
-    - os: osx
-      language: generic
-
-sudo: false
+os: linux
 dist: trusty
+language: python
+python: "3.6"
+sudo: true
 
 git:
   depth: 1
 
-branches:
-  only:
-  - master
-
-addons:
-  apt:
-    packages:
-      - shellcheck
-
-before_install:
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install shellcheck; fi
-
 install:
-- pip install cram
+- ./.ci/install-deps.sh
 
 script:
-  - echo Hello World
+- ./.ci/build.sh
+- shellcheck bin/*
+- (cram -v test/*.t > test/test.log && cat test/test.log | tail -n 1) || (cat test/test.log | tail -n 1 && false)
+
+after_failure:
+- cat test/test.log
