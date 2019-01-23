@@ -9,10 +9,12 @@ export PATH="$TESTDIR/../bin:$PATH"
 (
     cd "$TESTDIR/../bin" || exit 1
     if [ ! -f bootstrap ] ; then
-        mv "bootstrap-$(uname)" bootstrap
+        cp "bootstrap-$(uname)" bootstrap
     fi
 )
 
 clean() {
     rm -rf "$HOME"
+    cd "$TESTDIR/../bin" || exit 1
+    rm bootstrap
 }
