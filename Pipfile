@@ -6,12 +6,13 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
+j2cli = "*"
 cram = "*"
 shinto-cli = {extras = ["yaml"],version = "*"}
 pyyaml = ">=4.2b4"
 
 [requires]
-python_version = "3.6"
+python_version = "3.9"
 
 [pipenv]
 allow_prereleases = true
